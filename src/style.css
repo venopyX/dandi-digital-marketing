@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+    --spacing-8: 2rem; /* Equivalent to p-8 */
+    --color-white: #ffffff; /* Equivalent to bg-white, text-white */
+    --border-width-4: 4px; /* Equivalent to border-4 */
+    --color-black: #000000; /* Equivalent to border-black */
+    --transform: none; /* Default transform value */
+    --duration-300: 300ms; /* Equivalent to duration-300 */
+
+    --spacing-3: 0.75rem; /* Equivalent to px-3 */
+    --spacing-1: 0.25rem; /* Equivalent to py-1 */
+    --color-gray-100: #f7fafc; /* Equivalent to bg-gray-100 */
+    --border-width-2: 2px; /* Equivalent to border-2 */
+    --font-size-sm: 0.875rem; /* Equivalent to text-sm */
+    --font-family-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace; /* Equivalent to font-mono */
+
+    --spacing-4: 1rem; /* Equivalent to px-4, p-4 */
+    --spacing-2: 0.5rem; /* Equivalent to py-2 */
+    --color-blue-600: #2563eb; /* Equivalent to bg-blue-600 */
+    --font-weight-bold: 700; /* Equivalent to font-bold */
+
+    --color-yellow-400: #fbbf24; /* Equivalent to bg-yellow-400 */
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --line-height-relaxed: 1.625; /* Equivalent to leading-relaxed */
+    --letter-spacing-wide: 0.05em; /* Equivalent to tracking-wide */
+    --color-yellow-400: #fbbf24; /* Equivalent to bg-yellow-400 */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --font-family-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --spacing-4: 1rem; /* Equivalent to px-4 */
+    --spacing-2: 0.5rem; /* Equivalent to py-2 */
+    --spacing-6: 1.5rem; /* Equivalent to mb-6 */
+    --border-width-2: 2px; /* Equivalent to border-2 */
+
+    --spacing-6: 1.5rem; /* Equivalent to p-6 */
+    --spacing-3: 0.75rem; /* Equivalent to p-3 */
+    --spacing-4: 1rem; /* Equivalent to px-4, py-4 */
+    --spacing-2: 0.5rem; /* Equivalent to mb-2 */
+    --spacing-8: 2rem; /* Equivalent to px-8 */
+    --border-width-4: 4px; /* Equivalent to border-4 */
+    --border-width-2: 2px; /* Equivalent to border-2 */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-yellow-400: #fbbf24;
+    --color-blue-600: #2563eb;
+    --color-blue-700: #1d4ed8;
+    --color-red-500: #ef4444;
+    --color-green-100: #f0fdf4;
+    --color-green-500: #10b981;
+    --color-green-700: #059669;
+    --font-family-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+    --font-size-sm: 0.875rem;
+    --font-weight-bold: 700;
+
+}
