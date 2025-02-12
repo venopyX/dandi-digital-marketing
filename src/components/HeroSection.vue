@@ -23,9 +23,10 @@
     <div class="container mx-auto px-6 py-12 min-h-screen flex flex-col justify-center items-center relative z-10">
       <!-- Content Wrapper -->
       <div class="max-w-6xl w-full">
+      
         <!-- Brand Tag - Always at top -->
         <div class="flex justify-center md:justify-start mb-8">
-          <div class="inline-block bg-white rounded-full px-6 py-2 shadow-lg transform -rotate-2 border-2 border-[var(--color-brand-primary)] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:rotate-0">
+          <div class="inline-block bg-white rounded-full px-6 py-2 shadow-lg transform md:-rotate-2 border-2 border-[var(--color-brand-primary)] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:rotate-0">
             <span class="text-lg font-bold brand-gradient-text">
               Dandi Digital Marketing
             </span>
@@ -57,12 +58,12 @@
               </span>
             </h1>
 
-            <!-- Typewriter -->
-            <div class="bg-white rounded-2xl px-6 py-4 mb-8 shadow-lg inline-block transform -rotate-1">
+            <!-- Typewriter (Commented Out) -->
+            <!-- <div class="bg-white rounded-2xl px-6 py-4 mb-8 shadow-lg inline-block transform -rotate-1">
               <span class="text-xl md:text-2xl font-mono text-[var(--color-brand-secondary)]">
                 {{ currentEmoji }} {{ displayText }}<span class="cursor">|</span>
               </span>
-            </div>
+            </div> -->
           </div>
 
           <!-- Right Side Logo (hidden on mobile, shown on larger screens) -->
