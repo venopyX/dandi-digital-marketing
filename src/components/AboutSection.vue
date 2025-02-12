@@ -1,92 +1,117 @@
 <template>
-  <section id="about" class="about-section py-24 relative overflow-hidden bg-[#FFDE59]">
-    <!-- Decorative Elements -->
-    <div class="absolute inset-0 bg-grid opacity-5"></div>
-    
-    <div class="container mx-auto px-6">
+  <section id="about" class="min-h-screen relative overflow-hidden bg-gradient-to-br from-amber-50/90 via-yellow-50/80 to-orange-50/90">
+    <!-- Circular Pattern Background -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2218%22 fill=%22none%22 stroke=%22%23FF3366%22 stroke-width=%220.5%22 /%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2212%22 fill=%22none%22 stroke=%22%23FFDE59%22 stroke-width=%220.5%22 /%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
+      <div class="absolute inset-0 rotate-45" style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2215%22 fill=%22none%22 stroke=%22%234D27F7%22 stroke-width=%220.5%22 /%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
+    </div>
+
+    <!-- Glassmorphic Orbs -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-1/4 -right-20 w-[40rem] h-[40rem] bg-gradient-to-br from-amber-300/20 to-yellow-300/20 rounded-full blur-3xl" style="animation: float 15s ease-in-out infinite;"></div>
+      <div class="absolute -bottom-32 -left-32 w-[50rem] h-[50rem] bg-gradient-to-tr from-orange-300/20 to-yellow-300/20 rounded-full blur-3xl" style="animation: float-delayed 18s ease-in-out infinite;"></div>
+    </div>
+
+    <div class="container mx-auto px-6 py-24 relative z-10">
       <!-- Section Header -->
-      <div class="mb-16">
-        <span class="inline-block px-6 py-3 bg-black text-white font-mono mb-4 transform -rotate-2 border-[6px] border-black shadow-brutal">
-          About Us
-        </span>
-        <h2 class="text-5xl md:text-6xl font-black relative inline-block bg-white px-6 py-3 border-[6px] border-black shadow-brutal transform rotate-1">
-          Meet Dandi
+      <div class="text-center mb-16">
+        <div class="inline-block bg-white/70 backdrop-blur-sm rounded-full px-6 py-2 mb-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+          <span class="text-lg font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
+            About Us
+          </span>
+        </div>
+        <h2 class="text-5xl md:text-6xl font-black mb-8 tracking-tight">
+          <span class="block bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
+            Meet Dandi
+          </span>
         </h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Biography Column -->
-        <div class="biography-container">
-          <!-- Profile Image -->
-          <div class="profile-image-wrapper mb-8 lg:float-right lg:ml-8 lg:mb-4">
-            <div class="relative inline-block">
-              <div class="w-48 h-48 md:w-64 md:h-64 border-[6px] border-black overflow-hidden transform rotate-3 shadow-brutal bg-white">
-                <img 
-                  src="https://placehold.co/400x400" 
-                  alt="Dandi Kitessa"
-                  class="w-full h-full object-cover"
-                />
+        <div class="relative group">
+          <!-- Card Background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300 group-hover:scale-[1.01] group-hover:shadow-xl"></div>
+          
+          <div class="relative p-8">
+            <!-- Profile Image -->
+            <div class="mb-8 lg:float-right lg:ml-8 lg:mb-4">
+              <div class="relative">
+                <div class="w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-sm p-2 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img 
+                    src="https://i.pinimg.com/originals/07/33/ba/0733ba760b29378474dea0fdbcb97107.png" 
+                    alt="Dandi Kitessa"
+                    class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div class="absolute -z-10 inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur-xl opacity-20 transition-opacity duration-300 group-hover:opacity-30"></div>
               </div>
-              <div class="absolute -bottom-4 -right-4 w-full h-full border-[6px] border-black bg-[#FF3366] -z-10"></div>
             </div>
-          </div>
 
-          <!-- Biography Text -->
-          <div class="biography-text space-y-6 text-lg bg-white p-6 border-[6px] border-black shadow-brutal transform hover:-rotate-1 transition-transform">
-            <p class="font-black text-xl px-4 py-2 bg-[#4D27F7] text-white inline-block transform -rotate-1">Digital Creative Director & Brand Strategist</p>
-            <p class="font-medium">With over a decade of experience in digital design and marketing, I help brands tell their stories through compelling visuals and strategic thinking.</p>
-            <p class="font-medium">My approach combines creative innovation with data-driven insights, ensuring every project delivers both aesthetic excellence and measurable results.</p>
-            
-            <!-- Signature Element -->
-            <div class="signature-block mt-8">
-              <div class="w-32 h-16 bg-contain bg-no-repeat bg-left transform -rotate-3">
-                <!-- Placeholder for signature -->
-                <span class="font-handwriting text-2xl">Dandi Kitessa</span>
+            <!-- Biography Text -->
+            <div class="space-y-6">
+              <div class="inline-block rounded-xl px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold shadow-lg">
+                Digital Creative Director & Brand Strategist
+              </div>
+              <p class="text-gray-600">With over a decade of experience in digital design and marketing, I help brands tell their stories through compelling visuals and strategic thinking.</p>
+              <p class="text-gray-600">My approach combines creative innovation with data-driven insights, ensuring every project delivers both aesthetic excellence and measurable results.</p>
+              
+              <div class="mt-8">
+                <span class="font-serif text-2xl italic text-amber-600">Dandi Kitessa</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Skills & Social Column -->
-        <div class="space-y-12">
+        <div class="space-y-8">
           <!-- Skills Matrix -->
-          <div class="skills-matrix p-8 border-[6px] border-black bg-white transform hover:-translate-y-2 hover:translate-x-2 transition-transform shadow-brutal">
-            <h3 class="text-2xl font-black mb-6 px-4 py-2 bg-[#00C6BE] text-white inline-block transform -rotate-1 border-[4px] border-black">Expertise</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <template v-for="(skill, index) in skills" :key="index">
-                <div class="skill-bar-container">
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300 group-hover:scale-[1.01] group-hover:shadow-xl"></div>
+            
+            <div class="relative p-8">
+              <h3 class="text-2xl font-bold mb-8 bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Expertise</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div 
+                  v-for="(skill, index) in skills" 
+                  :key="index"
+                  class="skill-container"
+                >
                   <div class="flex justify-between mb-2">
-                    <span class="font-mono font-bold text-sm">{{ skill.name }}</span>
-                    <span class="font-mono font-bold text-sm">{{ skill.level }}%</span>
+                    <span class="font-medium text-gray-700">{{ skill.name }}</span>
+                    <span class="font-medium text-amber-600">{{ skill.level }}%</span>
                   </div>
-                  <div class="h-6 border-[4px] border-black bg-white">
+                  <div class="h-3 rounded-full bg-gray-100 overflow-hidden">
                     <div 
-                      class="h-full bg-[#FF3366]"
+                      class="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-500 transform-gpu"
                       :style="{ width: `${skill.level}%` }"
                     ></div>
                   </div>
                 </div>
-              </template>
+              </div>
             </div>
           </div>
 
           <!-- Social Links -->
-          <div class="social-panel bg-white p-6 border-[6px] border-black shadow-brutal transform hover:translate-x-2 hover:-translate-y-2 transition-transform">
-            <h3 class="text-2xl font-black mb-6 px-4 py-2 bg-[#4D27F7] text-white inline-block transform -rotate-1 border-[4px] border-black">Connect With Me</h3>
-            <div class="flex flex-wrap gap-4">
-              <a 
-                v-for="(social, index) in socialLinks" 
-                :key="index"
-                :href="social.url"
-                class="social-link flex items-center px-4 py-2 border-[4px] border-black bg-[#FFDE59] hover:bg-[#FF3366] hover:text-white font-bold transition-colors shadow-brutal transform hover:-rotate-2"
-                :title="social.name"
-              >
-                <component 
-                  :is="social.icon" 
-                  class="w-6 h-6"
-                />
-                <span class="ml-2 font-mono">{{ social.name }}</span>
-              </a>
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300 group-hover:scale-[1.01] group-hover:shadow-xl"></div>
+            
+            <div class="relative p-8">
+              <h3 class="text-2xl font-bold mb-8 bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Connect With Me</h3>
+              <div class="flex flex-wrap gap-4">
+                <a 
+                  v-for="(social, index) in socialLinks" 
+                  :key="index"
+                  :href="social.url"
+                  class="flex items-center px-4 py-2 rounded-xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 group"
+                >
+                  <component 
+                    :is="social.icon" 
+                    class="w-5 h-5 text-amber-600 transition-colors duration-300"
+                  />
+                  <span class="ml-2 font-medium text-gray-700 transition-colors duration-300">{{ social.name }}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -133,56 +158,27 @@ export default {
 </script>
 
 <style scoped>
-.bg-grid {
-  background-image: linear-gradient(to right, #000 2px, transparent 2px),
-                   linear-gradient(to bottom, #000 2px, transparent 2px);
-  background-size: 48px 48px;
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 20px) rotate(1deg); }
 }
 
-.shadow-brutal {
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+@keyframes float-delayed {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -20px) rotate(-1deg); }
 }
 
-.profile-image-wrapper {
-  position: relative;
-  display: inline-block;
-  filter: grayscale(20%);
-  transition: all 0.3s ease;
+@keyframes slideRight {
+  to { transform: translateX(0); }
 }
 
-.profile-image-wrapper:hover {
-  filter: grayscale(0%);
-  transform: rotate(-2deg);
+.skill-container:hover .h-3 {
+  transform: scale(1.02);
 }
 
-.biography-text {
-  line-height: 1.6;
-}
-
-.font-handwriting {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2rem;
-}
-
-.skill-bar-container:hover .h-6 {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 1);
-}
-
-/* Responsive Adjustments */
+/* Add responsive refinements */
 @media (max-width: 768px) {
-  .shadow-brutal {
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 1);
-  }
-  
-  .grid-cols-2 {
-    grid-template-columns: 1fr;
-  }
-  
-  .biography-text,
-  .skills-matrix,
-  .social-panel {
-    transform: none !important;
-  }
+  .grid { gap: 2rem; }
+  .p-8 { padding: 1.5rem; }
 }
 </style>

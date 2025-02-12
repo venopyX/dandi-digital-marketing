@@ -1,19 +1,34 @@
 <template>
-  <section id="services" class="services-section py-20 bg-[#00C6BE] relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 bg-grid opacity-5"></div>
-    
+  <section id="services" class="min-h-screen relative overflow-hidden bg-gradient-to-br from-cyan-50/90 via-blue-50/80 to-purple-50/90">
+    <!-- Complex Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #00C6BE 1px, transparent 0); background-size: 32px 32px;"></div>
+      <div class="absolute inset-0 rotate-45" style="background-image: radial-gradient(circle at 2px 2px, #4D27F7 1px, transparent 0); background-size: 24px 24px;"></div>
+    </div>
+
+    <!-- Large Circular Glassmorphic Elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-cyan-300/20 to-blue-300/20 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-[32rem] h-[32rem] bg-gradient-to-tr from-purple-300/20 to-blue-300/20 rounded-full blur-3xl"></div>
+    </div>
+
     <!-- Content Container -->
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto px-6 py-20 relative z-10">
       <!-- Section Header -->
-      <div class="section-header mb-16 relative">
-        <span class="inline-block text-xl font-mono mb-4 px-4 py-2 bg-black text-white border-[6px] border-black transform -rotate-2">What We Do</span>
-        <h2 class="text-5xl md:text-6xl font-black mb-6 relative">
-          <span class="inline-block bg-white px-6 py-3 border-[6px] border-black shadow-brutal transform rotate-1">Our Services</span>
+      <div class="text-center mb-16">
+        <div class="inline-block bg-white/70 backdrop-blur-sm rounded-full px-6 py-2 mb-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+          <span class="text-lg font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            Our Services
+          </span>
+        </div>
+        <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tight">
+          <span class="block bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            Transforming Vision
+          </span>
+          <span class="block text-blue-400 mt-2">
+            Into Digital Reality
+          </span>
         </h2>
-        <p class="text-xl text-black max-w-2xl mt-8 bg-[#FFDE59] p-4 border-[6px] border-black shadow-brutal inline-block transform -rotate-1">
-          Transforming visions into digital reality through innovative design and strategic solutions.
-        </p>
       </div>
 
       <!-- Services Grid -->
@@ -21,43 +36,51 @@
         <div 
           v-for="(service, index) in services" 
           :key="index"
-          class="service-card bg-white border-[6px] border-black shadow-brutal transform hover:-rotate-1 hover:translate-x-2 hover:-translate-y-2 transition-transform"
-          :class="[`accent-${index % 4}`]"
+          class="group relative"
         >
-          <!-- Service Icon -->
-          <div class="icon-container mb-6">
-            <component 
-              :is="service.icon" 
-              class="w-12 h-12 text-white"
-            />
-          </div>
+          <!-- Card Background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"></div>
+          
+          <!-- Card Content -->
+          <div class="relative p-8">
+            <div class="mb-6 transition-transform duration-300 group-hover:scale-110">
+              <component 
+                :is="service.icon" 
+                class="w-12 h-12"
+                :class="`text-gradient-${index % 4}`"
+              />
+            </div>
 
-          <!-- Service Content -->
-          <h3 class="text-2xl font-black mb-4">{{ service.title }}</h3>
-          <p class="text-gray-800 mb-6 font-medium">{{ service.description }}</p>
+            <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+              {{ service.title }}
+            </h3>
+            <p class="text-gray-600 mb-6">{{ service.description }}</p>
 
-          <!-- Skills Tags -->
-          <div class="flex flex-wrap gap-2">
-            <span 
-              v-for="(tag, tagIndex) in service.tags" 
-              :key="tagIndex"
-              class="skill-tag inline-block"
-            >
-              {{ tag }}
-            </span>
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+              <span 
+                v-for="(tag, tagIndex) in service.tags" 
+                :key="tagIndex"
+                class="px-3 py-1 rounded-full text-sm font-medium bg-white/50 backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-300 hover:scale-105"
+              >
+                {{ tag }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Floating Skills -->
-      <div class="skills-cloud mt-16 flex flex-wrap justify-center gap-6">
+      <div class="mt-16 flex flex-wrap justify-center gap-4">
         <div 
           v-for="(skill, index) in floatingSkills" 
           :key="index"
-          class="floating-skill bg-[#FF3366] text-white font-bold py-3 px-6 border-[6px] border-black shadow-brutal transform hover:rotate-3 hover:-translate-y-2 transition-transform"
+          class="skill-float px-6 py-3 rounded-xl bg-white/70 backdrop-blur-sm shadow-lg border border-white/20"
           :style="{ animationDelay: `${index * 0.2}s` }"
         >
-          {{ skill }}
+          <span class="font-medium bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            {{ skill }}
+          </span>
         </div>
       </div>
     </div>
@@ -154,88 +177,45 @@ export default {
 </script>
 
 <style scoped>
-/* Background Grid Pattern */
-.bg-grid {
-  background-image: linear-gradient(to right, #000 2px, transparent 2px),
-                    linear-gradient(to bottom, #000 2px, transparent 2px);
-  background-size: 48px 48px;
+.text-gradient-0 {
+  background: linear-gradient(to right, #00C6BE, #4D27F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Service Cards */
-.service-card {
-  padding: 2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.text-gradient-1 {
+  background: linear-gradient(to right, #4D27F7, #FF3366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.shadow-brutal {
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+.text-gradient-2 {
+  background: linear-gradient(to right, #FF3366, #FFDE59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Accent Colors */
-.accent-0 .icon-container { background-color: #FF3366; }
-.accent-1 .icon-container { background-color: #4D27F7; }
-.accent-2 .icon-container { background-color: #00C6BE; }
-.accent-3 .icon-container { background-color: #FFDE59; }
-
-/* Skill Tags */
-.skill-tag {
-  padding: 0.25rem 0.75rem;
-  background-color: #4D27F7;
-  color: white;
-  font-size: 0.875rem;
-  font-family: monospace;
-  font-weight: bold;
-  border: 4px solid black;
-  transform: rotate(-1deg);
-  transition: transform 0.3s ease;
+.text-gradient-3 {
+  background: linear-gradient(to right, #FFDE59, #00C6BE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.skill-tag:hover {
-  transform: rotate(2deg) scale(1.05);
-}
-
-/* Icon Container */
-.icon-container {
-  padding: 1rem;
-  display: inline-block;
-  border: 6px solid black;
-  transform: rotate(-6deg);
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover .icon-container {
-  transform: rotate(6deg);
-}
-
-@keyframes float {
+@keyframes skillFloat {
   0%, 100% {
-    transform: translateY(0) rotate(-2deg);
+    transform: translateY(0) rotate(0);
   }
   50% {
-    transform: translateY(-15px) rotate(2deg);
+    transform: translateY(-10px) rotate(2deg);
   }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .service-card {
-    transform: none !important;
-  }
-  
-  .shadow-brutal {
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 1);
-  }
-  
-  .floating-skill {
-    transform: none;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-  }
-  
-  .section-header p {
-    font-size: 1.125rem;
-  }
+.skill-float {
+  animation: skillFloat 4s ease-in-out infinite;
+}
+
+.skill-float:nth-child(even) {
+  animation-duration: 5s;
+  animation-direction: reverse;
 }
 </style>

@@ -1,32 +1,50 @@
 <template>
-  <nav class="nav-container fixed w-full top-0 z-50 bg-[#FFDE59]">
-    <!-- Desktop Navigation -->
-    <div class="container mx-auto px-6">
-      <div class="nav-content flex justify-between items-center h-20 border-b-[6px] border-black">
+  <nav class="fixed w-full top-0 z-50 transition-all duration-300">
+    <!-- Backdrop Blur Container -->
+    <div class="absolute inset-0 bg-white/70 backdrop-blur-lg shadow-lg"></div>
+    
+    <!-- Main Navigation Content -->
+    <div class="container mx-auto px-6 relative">
+      <div class="flex justify-between items-center h-20">
         <!-- Logo Area -->
-        <div class="nav-logo">
-          <a href="/" class="text-3xl font-black tracking-tight hover:rotate-2 transition-transform inline-block">
-            Dandi Digital Marketing
+        <div class="relative">
+          <a href="/" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg">
+              <img src="../assets/logo.png" alt="Logo" class="w-10 h-10 object-cover object-center">
+            </div>
+            <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
+              Dandi Digital Marketing
+            </span>
           </a>
         </div>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-8">
+        <div class="hidden md:flex items-center gap-6">
           <template v-for="(item, index) in menuItems" :key="index">
             <a
               :href="item.href"
-              class="nav-link relative font-bold text-lg px-4 py-2 hover:-rotate-3 hover:scale-110 transition-transform inline-block flex items-center gap-2"
-              :class="{ 'active': item.active }"
+              class="relative px-4 py-2 font-medium text-gray-700 hover:text-pink-500 transition-colors flex items-center gap-2 group"
+              :class="{ 'text-pink-500': item.active }"
             >
-              <component :is="item.icon" class="w-5 h-5" />
-              {{ item.label }}
+              <component 
+                :is="item.icon" 
+                class="w-5 h-5 transition-transform group-hover:scale-110" 
+              />
+              <span>{{ item.label }}</span>
+              <!-- Hover Effect -->
+              <div class="absolute inset-0 bg-pink-50/50 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+              <!-- Active Indicator -->
+              <div 
+                v-if="item.active" 
+                class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500"
+              ></div>
             </a>
           </template>
         </div>
 
         <!-- Contact Button (Desktop) -->
         <div class="hidden md:block">
-          <button class="contact-btn px-6 py-2 bg-[#FF3366] text-white font-bold border-[6px] border-black hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-brutal flex items-center gap-2">
+          <button class="px-6 py-2.5 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
             <EnvelopeIcon class="w-5 h-5" />
             Contact Us
           </button>
@@ -35,13 +53,13 @@
         <!-- Mobile Menu Toggle -->
         <button
           @click="toggleMobileMenu"
-          class="md:hidden mobile-toggle p-2 border-4 border-black hover:bg-gray-100"
-          :class="{ 'active': isMobileMenuOpen }"
+          class="md:hidden relative z-50 p-2 rounded-xl bg-white/80 backdrop-blur-sm hover:bg-pink-50 transition-colors"
+          :class="{ 'bg-pink-50': isMobileMenuOpen }"
         >
-          <div class="w-6 h-5 relative flex flex-col justify-between">
-            <span class="block w-full h-1 bg-black transition-transform"></span>
-            <span class="block w-full h-1 bg-black transition-opacity"></span>
-            <span class="block w-full h-1 bg-black transition-transform"></span>
+          <div class="w-6 h-5 flex flex-col justify-between">
+            <span class="block w-full h-0.5 bg-gray-700 transition-transform" :class="{ 'rotate-45 translate-y-2': isMobileMenuOpen }"></span>
+            <span class="block w-full h-0.5 bg-gray-700 transition-opacity" :class="{ 'opacity-0': isMobileMenuOpen }"></span>
+            <span class="block w-full h-0.5 bg-gray-700 transition-transform" :class="{ '-rotate-45 -translate-y-2': isMobileMenuOpen }"></span>
           </div>
         </button>
       </div>
@@ -50,22 +68,22 @@
     <!-- Mobile Menu Panel -->
     <div
       v-show="isMobileMenuOpen"
-      class="mobile-menu md:hidden"
+      class="md:hidden absolute inset-x-0 top-0 pt-20 bg-white/90 backdrop-blur-lg shadow-lg"
     >
       <div class="container mx-auto px-6">
-        <div class="py-4 space-y-4 border-x-4 border-b-4 border-black bg-white">
+        <div class="py-6 space-y-4">
           <template v-for="(item, index) in menuItems" :key="index">
             <a
               :href="item.href"
-              class="block px-4 py-3 font-bold text-lg hover:bg-gray-100 transition-colors flex items-center gap-2"
-              :class="{ 'active': item.active }"
+              class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 hover:bg-pink-50 transition-colors"
+              :class="{ 'bg-pink-50 text-pink-500': item.active }"
             >
               <component :is="item.icon" class="w-5 h-5" />
               {{ item.label }}
             </a>
           </template>
-          <div class="px-4 pt-4 border-t-4 border-black">
-            <button class="w-full py-3 bg-black text-white font-bold border-4 border-black hover:bg-[#FF3366] hover:border-[#FF3366] transition-colors flex items-center justify-center gap-2">
+          <div class="pt-4 border-t border-gray-100">
+            <button class="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
               <EnvelopeIcon class="w-5 h-5" />
               Contact Us
             </button>
@@ -135,54 +153,25 @@ export default {
 </script>
 
 <style scoped>
-/* Neo-Brutalist Navigation Styles */
-.nav-container {
-  transition: transform 0.3s ease;
-}
-
 .nav-scrolled {
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
-}
-
-/* Desktop Navigation Link Styles */
-.nav-link {
-  transition: transform 0.3s ease;
-  background-color: white;
-  border: 4px solid black;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 1);
-}
-
-/* Mobile Toggle Button */
-.mobile-toggle {
-  background-color: white;
-}
-
-.mobile-toggle span {
-  transform-origin: center;
-  transition: all 0.3s ease;
-}
-
-.mobile-toggle.active span:first-child {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.mobile-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-toggle.active span:last-child {
-  transform: translateY(-8px) rotate(-45deg);
+  @supports (backdrop-filter: blur(12px)) {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+  }
+  
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* Mobile Menu Animation */
 .mobile-menu {
-  animation: slideDown 0.3s ease-out forwards;
+  animation: slideIn 0.3s ease-out forwards;
 }
 
-@keyframes slideDown {
+@keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-1rem);
   }
   to {
     opacity: 1;
@@ -190,26 +179,10 @@ export default {
   }
 }
 
-/* Contact Button Hover Effect */
-.contact-btn {
-  transition: transform 0.3s ease;
-}
-
-/* Shadow Utility Class */
-.shadow-brutal {
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
-}
-
-/* Active State Styles */
-.nav-link.active {
-  background-color: #FF3366;
-  color: white;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .nav-container {
-    border-bottom: 6px solid black;
-  }
+/* Ensure smooth transitions */
+* {
+  transition-property: transform, opacity, background-color, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 </style>
