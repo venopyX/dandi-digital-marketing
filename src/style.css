@@ -58,4 +58,10 @@
     --font-size-sm: 0.875rem;
     --font-weight-bold: 700;
 
+
+    --color-brand-primary: #f87d08;
+    --color-brand-secondary: #3b393a;
+    --color-brand-light: #f5efef;
+    --color-brand-accent: #f87d08;
+    --color-brand-background: #ffd2a9;
 }

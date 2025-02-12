@@ -20,7 +20,6 @@ import FooterSection from '../components/FooterSection.vue'
 
 <style>
 .home {
-  background-color: #FFDE59;
   min-height: 100vh;
 }
 </style>
