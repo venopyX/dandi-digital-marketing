@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed w-full top-0 z-50 transition-all duration-300">
     <!-- Backdrop Blur Container -->
-    <div class="absolute inset-0 bg-white/70 backdrop-blur-lg shadow-lg"></div>
+    <div class="absolute inset-0 bg-[var(--color-brand-light)]/70 backdrop-blur-lg shadow-lg"></div>
     
     <!-- Main Navigation Content -->
     <div class="container mx-auto px-6 relative">
@@ -9,10 +9,10 @@
         <!-- Logo Area -->
         <div class="relative">
           <a href="/" class="flex items-center gap-3 group">
-            <div class="w-10 h-10 bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg">
+            <div class="w-10 h-10 bg-gradient-to-br from-[var(--color-brand-light)] to-[var(--color-brand-accent)]/20 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg">
               <img src="../assets/logo.png" alt="Logo" class="w-10 h-10 object-cover object-center">
             </div>
-            <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
+            <span class="text-xl font-bold bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
               Dandi Digital Marketing
             </span>
           </a>
@@ -23,8 +23,8 @@
           <template v-for="(item, index) in menuItems" :key="index">
             <a
               :href="item.href"
-              class="relative px-4 py-2 font-medium text-gray-700 hover:text-pink-500 transition-colors flex items-center gap-2 group"
-              :class="{ 'text-pink-500': item.active }"
+              class="relative px-4 py-2 font-medium text-[var(--color-brand-secondary)] hover:text-[var(--color-brand-primary)] transition-colors flex items-center gap-2 group"
+              :class="{ 'text-[var(--color-brand-primary)]': item.active }"
             >
               <component 
                 :is="item.icon" 
@@ -32,11 +32,11 @@
               />
               <span>{{ item.label }}</span>
               <!-- Hover Effect -->
-              <div class="absolute inset-0 bg-pink-50/50 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+              <div class="absolute inset-0 bg-[var(--color-brand-light)]/30 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
               <!-- Active Indicator -->
               <div 
                 v-if="item.active" 
-                class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500"
+                class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)]"
               ></div>
             </a>
           </template>
@@ -44,7 +44,7 @@
 
         <!-- Contact Button (Desktop) -->
         <div class="hidden md:block">
-          <button class="px-6 py-2.5 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+        <button class="px-6 py-2.5 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2" onclick="window.open('https://www.linkedin.com/in/dandi-digital-827b12350', '_blank')">
             <EnvelopeIcon class="w-5 h-5" />
             Contact Us
           </button>
@@ -53,13 +53,13 @@
         <!-- Mobile Menu Toggle -->
         <button
           @click="toggleMobileMenu"
-          class="md:hidden relative z-50 p-2 rounded-xl bg-white/80 backdrop-blur-sm hover:bg-pink-50 transition-colors"
-          :class="{ 'bg-pink-50': isMobileMenuOpen }"
+          class="md:hidden relative z-50 p-2 rounded-xl bg-[var(--color-brand-light)]/80 backdrop-blur-sm hover:bg-[var(--color-brand-light)]/50 transition-colors"
+          :class="{ 'bg-[var(--color-brand-light)]/50': isMobileMenuOpen }"
         >
           <div class="w-6 h-5 flex flex-col justify-between">
-            <span class="block w-full h-0.5 bg-gray-700 transition-transform" :class="{ 'rotate-45 translate-y-2': isMobileMenuOpen }"></span>
-            <span class="block w-full h-0.5 bg-gray-700 transition-opacity" :class="{ 'opacity-0': isMobileMenuOpen }"></span>
-            <span class="block w-full h-0.5 bg-gray-700 transition-transform" :class="{ '-rotate-45 -translate-y-2': isMobileMenuOpen }"></span>
+            <span class="block w-full h-0.5 bg-[var(--color-brand-secondary)] transition-transform" :class="{ 'rotate-45 translate-y-2': isMobileMenuOpen }"></span>
+            <span class="block w-full h-0.5 bg-[var(--color-brand-secondary)] transition-opacity" :class="{ 'opacity-0': isMobileMenuOpen }"></span>
+            <span class="block w-full h-0.5 bg-[var(--color-brand-secondary)] transition-transform" :class="{ '-rotate-45 -translate-y-2': isMobileMenuOpen }"></span>
           </div>
         </button>
       </div>
@@ -68,22 +68,28 @@
     <!-- Mobile Menu Panel -->
     <div
       v-show="isMobileMenuOpen"
-      class="md:hidden absolute inset-x-0 top-0 pt-20 bg-white/90 backdrop-blur-lg shadow-lg"
+      class="md:hidden absolute inset-x-0 top-0 pt-20 bg-[var(--color-brand-light)]/90 backdrop-blur-lg shadow-lg"
     >
       <div class="container mx-auto px-6">
         <div class="py-6 space-y-4">
           <template v-for="(item, index) in menuItems" :key="index">
             <a
               :href="item.href"
-              class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 hover:bg-pink-50 transition-colors"
-              :class="{ 'bg-pink-50 text-pink-500': item.active }"
+              @click="closeMobileMenu"
+              class="relative flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-[var(--color-brand-secondary)] hover:text-[var(--color-brand-primary)] hover:bg-[var(--color-brand-light)]/50 transition-colors group"
+              :class="{ 'bg-[var(--color-brand-light)]/30 text-[var(--color-brand-primary)]': item.active }"
             >
               <component :is="item.icon" class="w-5 h-5" />
-              {{ item.label }}
+              <span>{{ item.label }}</span>
+              <!-- Hover Effect -->
+              <div class="absolute inset-0 bg-[var(--color-brand-light)]/50 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
             </a>
           </template>
-          <div class="pt-4 border-t border-gray-100">
-            <button class="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+          <div class="pt-4 border-t border-[var(--color-brand-light)]/50">
+            <button 
+              @click="closeMobileMenu" 
+              class="w-full py-3 bg-gradient-to-r from-[var(--color-brand-primary)] to-[var(--color-brand-accent)] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+            >
               <EnvelopeIcon class="w-5 h-5" />
               Contact Us
             </button>
@@ -132,11 +138,12 @@ export default {
     toggleMobileMenu() {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
+    closeMobileMenu() {
+      this.isMobileMenuOpen = false;
+    },
     handleScroll() {
-      // Add scroll handling logic here
       const scrollPosition = window.scrollY;
       if (scrollPosition > 50) {
-        // Add shadow class when scrolled
         this.$el.classList.add('nav-scrolled');
       } else {
         this.$el.classList.remove('nav-scrolled');
@@ -155,7 +162,7 @@ export default {
 <style scoped>
 .nav-scrolled {
   @supports (backdrop-filter: blur(12px)) {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(var(--color-brand-light-rgb), 0.7);
     backdrop-filter: blur(12px);
   }
   
