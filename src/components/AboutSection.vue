@@ -34,7 +34,8 @@
             <!-- Profile Image -->
             <div class="mb-8 lg:float-right lg:ml-8 lg:mb-4">
               <div class="relative">
-                <div class="w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-sm p-2 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                <!-- Portrait-friendly container -->
+                <div class="w-48 h-64 md:w-64 md:h-96 overflow-hidden rounded-2xl bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-sm p-2 shadow-lg transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="../assets/dandi-kitessa.webp" 
                     alt="Dandi Kitessa"
@@ -117,10 +118,8 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInstagram, faLinkedin, faFacebook, faTelegram } from '@fortawesome/free-brands-svg-icons';
-
 // Add icons to the library
 library.add(faInstagram, faLinkedin, faFacebook, faTelegram);
-
 export default {
   name: 'AboutSection',
   components: {
@@ -161,9 +160,12 @@ export default {
 .skill-container:hover .h-3 {
   transform: scale(1.02);
 }
-/* Add responsive refinements */
+/* Adjustments for portrait image */
 @media (max-width: 768px) {
   .grid { gap: 2rem; }
   .p-8 { padding: 1.5rem; }
+  .w-48.h-64.md\:w-64.md\:h-96 {
+    aspect-ratio: 2 / 3; /* Maintain portrait aspect ratio */
+  }
 }
 </style>
