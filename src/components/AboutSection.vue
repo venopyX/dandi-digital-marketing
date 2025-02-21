@@ -5,13 +5,11 @@
       <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2218%22 fill=%22none%22 stroke=%22%23FF3366%22 stroke-width=%220.5%22 /%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2212%22 fill=%22none%22 stroke=%22%23FFDE59%22 stroke-width=%220.5%22 /%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
       <div class="absolute inset-0 rotate-45" style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2215%22 fill=%22none%22 stroke=%22%234D27F7%22 stroke-width=%220.5%22 /%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
     </div>
-
     <!-- Glassmorphic Orbs -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div class="absolute top-1/4 -right-20 w-[40rem] h-[40rem] bg-gradient-to-br from-amber-300/20 to-yellow-300/20 rounded-full blur-3xl" style="animation: float 15s ease-in-out infinite;"></div>
       <div class="absolute -bottom-32 -left-32 w-[50rem] h-[50rem] bg-gradient-to-tr from-orange-300/20 to-yellow-300/20 rounded-full blur-3xl" style="animation: float-delayed 18s ease-in-out infinite;"></div>
     </div>
-
     <div class="container mx-auto px-6 py-24 relative z-10">
       <!-- Section Header -->
       <div class="text-center mb-16">
@@ -26,7 +24,6 @@
           </span>
         </h2>
       </div>
-
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Biography Column -->
         <div class="relative group">
@@ -39,7 +36,7 @@
               <div class="relative">
                 <div class="w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-2xl bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-sm p-2 shadow-lg transition-transform duration-300 group-hover:scale-105">
                   <img 
-                    src="https://i.pinimg.com/originals/07/33/ba/0733ba760b29378474dea0fdbcb97107.png" 
+                    src="../assets/dandi-kitessa.webp" 
                     alt="Dandi Kitessa"
                     class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
                   />
@@ -47,7 +44,6 @@
                 <div class="absolute -z-10 inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur-xl opacity-20 transition-opacity duration-300 group-hover:opacity-30"></div>
               </div>
             </div>
-
             <!-- Biography Text -->
             <div class="space-y-6">
               <div class="inline-block rounded-xl px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold shadow-lg">
@@ -62,7 +58,6 @@
             </div>
           </div>
         </div>
-
         <!-- Skills & Social Column -->
         <div class="space-y-8">
           <!-- Skills Matrix -->
@@ -91,7 +86,6 @@
               </div>
             </div>
           </div>
-
           <!-- Social Links -->
           <div class="relative group">
             <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300 group-hover:scale-[1.01] group-hover:shadow-xl"></div>
@@ -105,8 +99,8 @@
                   :href="social.url"
                   class="flex items-center px-4 py-2 rounded-xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 group"
                 >
-                  <component 
-                    :is="social.icon" 
+                  <font-awesome-icon 
+                    :icon="['fab', social.icon]" 
                     class="w-5 h-5 text-amber-600 transition-colors duration-300"
                   />
                   <span class="ml-2 font-medium text-gray-700 transition-colors duration-300">{{ social.name }}</span>
@@ -119,22 +113,18 @@
     </div>
   </section>
 </template>
-
 <script>
-import { 
-  UserGroupIcon,
-  HashtagIcon,
-  GlobeAltIcon,
-  RssIcon
-} from '@heroicons/vue/24/outline'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faInstagram, faLinkedin, faFacebook, faTelegram } from '@fortawesome/free-brands-svg-icons';
+
+// Add icons to the library
+library.add(faInstagram, faLinkedin, faFacebook, faTelegram);
 
 export default {
   name: 'AboutSection',
   components: {
-    UserGroupIcon,
-    HashtagIcon,
-    GlobeAltIcon,
-    RssIcon
+    FontAwesomeIcon
   },
   data() {
     return {
@@ -147,35 +137,30 @@ export default {
         { name: 'Data Analysis', level: 78 }
       ],
       socialLinks: [
-        { name: 'Community', icon: 'UserGroupIcon', url: '#' },
-        { name: 'Social', icon: 'HashtagIcon', url: '#' },
-        { name: 'Website', icon: 'GlobeAltIcon', url: '#' },
-        { name: 'Blog', icon: 'RssIcon', url: '#' }
+        { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/dandi_digital_marketing_agency' },
+        { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/dandi-digital-827b12350' },
+        { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=100082760081622' },
+        { name: 'Telegram', icon: 'telegram', url: '#' },
       ]
     }
   }
 }
 </script>
-
 <style scoped>
 @keyframes float {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
   50% { transform: translate(-20px, 20px) rotate(1deg); }
 }
-
 @keyframes float-delayed {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
   50% { transform: translate(20px, -20px) rotate(-1deg); }
 }
-
 @keyframes slideRight {
   to { transform: translateX(0); }
 }
-
 .skill-container:hover .h-3 {
   transform: scale(1.02);
 }
-
 /* Add responsive refinements */
 @media (max-width: 768px) {
   .grid { gap: 2rem; }

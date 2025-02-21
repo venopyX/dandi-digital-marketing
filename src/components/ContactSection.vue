@@ -1,125 +1,86 @@
 <template>
-  <section id="contact" class="relative min-h-screen py-24 bg-gradient-to-br from-teal-50/90 via-cyan-50/80 to-blue-50/90 overflow-hidden">
-    <!-- Complex Background Pattern -->
+  <section id="contact" class="min-h-screen relative overflow-hidden bg-gradient-to-br from-amber-50/90 via-yellow-50/80 to-orange-50/90">
+    <!-- Circular Pattern Background -->
     <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #00C6BE 1px, transparent 0); background-size: 32px 32px;"></div>
-      <div class="absolute inset-0 rotate-45" style="background-image: radial-gradient(circle at 2px 2px, #4D27F7 1px, transparent 0); background-size: 24px 24px;"></div>
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2218%22 fill=%22none%22 stroke=%22%23FF3366%22 stroke-width=%220.5%22 /%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2212%22 fill=%22none%22 stroke=%22%23FFDE59%22 stroke-width=%220.5%22 /%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
+      <div class="absolute inset-0 rotate-45" style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2215%22 fill=%22none%22 stroke=%22%234D27F7%22 stroke-width=%220.5%22 /%3E%3C/svg%3E'); background-size: 40px 40px;"></div>
     </div>
-
-    <!-- Large Circular Glassmorphic Elements -->
+    <!-- Glassmorphic Orbs -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div class="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-teal-300/20 to-blue-300/20 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-40 -left-40 w-[32rem] h-[32rem] bg-gradient-to-tr from-cyan-300/20 to-teal-300/20 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/4 -right-20 w-[40rem] h-[40rem] bg-gradient-to-br from-amber-300/20 to-yellow-300/20 rounded-full blur-3xl" style="animation: float 15s ease-in-out infinite;"></div>
+      <div class="absolute -bottom-32 -left-32 w-[50rem] h-[50rem] bg-gradient-to-tr from-orange-300/20 to-yellow-300/20 rounded-full blur-3xl" style="animation: float-delayed 18s ease-in-out infinite;"></div>
     </div>
-
-    <!-- Enhanced Floating Elements -->
-    <div class="absolute inset-0 pointer-events-none" ref="backgroundEffect">
-      <!-- Decorative Elements -->
-      <div class="absolute top-20 right-20 text-teal-300/80 animate-float">
-        <EnvelopeIcon class="w-8 h-8" />
-      </div>
-      <div class="absolute bottom-32 left-1/4 text-cyan-300/60 animate-float-delay">
-        <PhoneIcon class="w-6 h-6" />
-      </div>
-      <div class="absolute top-40 left-20 text-blue-400/80 animate-twinkle">
-        <MapPinIcon class="w-8 h-8" />
-      </div>
-      
-      <!-- Geometric Shapes -->
-      <div class="absolute top-1/4 left-1/3 w-8 h-8 border-2 border-teal-300/30 rounded-full animate-spin-slow"></div>
-      <div class="absolute bottom-1/3 right-1/4 w-12 h-12 border-2 border-cyan-300/30 rounded-lg transform rotate-45 animate-float-slow"></div>
-    </div>
-
-    <div class="container mx-auto px-6 relative z-10">
-      <!-- Section Header -->
+    <div class="container mx-auto px-6 py-24 relative z-10">
       <div class="text-center mb-16">
-        <div class="inline-block bg-white/80 backdrop-blur-sm rounded-full px-6 py-2 mb-6 shadow-lg transform -rotate-1 border border-teal-200">
-          <span class="text-lg font-bold bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text text-transparent">
+        <h2 class="text-5xl md:text-6xl font-black mb-8 tracking-tight">
+          <span class="block bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
             Get in Touch
           </span>
-        </div>
-        <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tight">
-          <span class="block bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text text-transparent">
-            Let's Create
-          </span>
-          <span class="block text-teal-400 mt-2">
-            Something Amazing
-          </span>
         </h2>
+        <p class="text-2xl md:text-3xl font-semibold text-gray-700">
+          Let's Create Something Amazing
+        </p>
       </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <!-- Contact Information -->
-        <div class="space-y-8">
-          <div v-for="(info, index) in contactInfo" 
-               :key="index"
-               class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-            <div class="flex items-center space-x-4">
-              <div class="p-4 rounded-xl bg-gradient-to-r from-teal-500 to-blue-500 text-white">
-                <component :is="info.icon" class="w-6 h-6" />
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-800">{{ info.title }}</h3>
-                <p class="text-gray-600">{{ info.details }}</p>
-              </div>
-            </div>
+      <div class="max-w-lg mx-auto space-y-6">
+        <!-- Form -->
+        <form @submit.prevent="handleSubmit" class="space-y-4">
+          <div>
+            <label for="name" class="block text-lg font-medium text-gray-700">{{ info.title }}</label>
+            <input 
+              type="text" 
+              id="name" 
+              v-model="formData.name" 
+              placeholder="Your Name" 
+              class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300"
+            />
+            <span v-if="errors.name" class="text-red-500 text-sm">{{ errors.name }}</span>
           </div>
-
-          <!-- Social Links -->
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-            <h3 class="text-xl font-bold mb-4 bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text text-transparent">Follow Us</h3>
-            <div class="flex space-x-4">
-              <a v-for="social in socialLinks" 
-                 :key="social.name"
-                 :href="social.url"
-                 class="p-3 rounded-xl bg-gradient-to-r from-teal-500/10 to-blue-500/10 hover:from-teal-500 hover:to-blue-500 hover:text-white transition-all duration-300">
-                <component :is="social.icon" class="w-5 h-5" />
-              </a>
-            </div>
+          <div>
+            <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              v-model="formData.email" 
+              placeholder="Your Email" 
+              class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300"
+            />
+            <span v-if="errors.email" class="text-red-500 text-sm">{{ errors.email }}</span>
           </div>
+          <div>
+            <label for="message" class="block text-lg font-medium text-gray-700">Message</label>
+            <textarea 
+              id="message" 
+              v-model="formData.message" 
+              rows="4" 
+              placeholder="Your Message" 
+              class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300"
+            ></textarea>
+            <span v-if="errors.message" class="text-red-500 text-sm">{{ errors.message }}</span>
+          </div>
+          <button 
+            type="submit" 
+            class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+          </button>
+        </form>
+        <!-- Success Message -->
+        <div v-if="successMessage" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
+          {{ successMessage }}
         </div>
-
-        <!-- Contact Form -->
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-          <form @submit.prevent="handleSubmit" class="space-y-6">
-            <div v-for="(field, key) in formFields" :key="key" class="space-y-2">
-              <label class="block text-gray-700 font-bold">{{ field.label }}</label>
-              <component
-                :is="field.type === 'textarea' ? 'textarea' : 'input'"
-                v-model="formData[key]"
-                :type="field.type"
-                :class="[
-                  'w-full px-4 py-3 rounded-xl border border-gray-200',
-                  'focus:ring-2 focus:ring-teal-500 focus:border-transparent',
-                  'backdrop-blur-sm transition-all duration-300',
-                  field.type === 'textarea' ? 'min-h-[150px]' : '',
-                  errors[key] ? 'border-red-300' : ''
-                ]"
-                @focus="clearError(key)"
-              />
-              <span v-if="errors[key]" class="text-red-500 text-sm">{{ errors[key] }}</span>
-            </div>
-
-            <button
-              type="submit"
-              :disabled="isSubmitting"
-              class="w-full py-4 px-6 rounded-xl font-bold text-white shadow-lg
-                     bg-gradient-to-r from-teal-500 to-blue-500 
-                     hover:from-teal-600 hover:to-blue-600
-                     transform hover:-translate-y-1 transition-all duration-300
-                     disabled:opacity-50 disabled:cursor-not-allowed
-                     flex items-center justify-center space-x-2"
+        <!-- Follow Us -->
+        <div class="text-center mt-8">
+          <h3 class="text-2xl font-bold mb-4">Follow Us</h3>
+          <div class="flex justify-center gap-4">
+            <a 
+              v-for="(social, index) in socialLinks" 
+              :key="index" 
+              :href="social.url" 
+              target="_blank" 
+              class="text-2xl text-gray-700 hover:text-amber-500 transition-colors duration-300"
             >
-              <ArrowPathIcon v-if="isSubmitting" class="animate-spin w-5 h-5" />
-              <span>{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
-            </button>
-          </form>
-
-          <!-- Success Message -->
-          <div v-if="showSuccess"
-               class="mt-6 p-4 rounded-xl bg-gradient-to-r from-teal-500 to-blue-500 text-white
-                      transform animate-slideIn">
-            Message sent successfully! We'll get back to you soon. ✨
+              <font-awesome-icon :icon="['fab', social.icon]" />
+            </a>
           </div>
         </div>
       </div>
@@ -128,26 +89,17 @@
 </template>
 
 <script>
-import {
-  EnvelopeIcon,
-  PhoneIcon,
-  MapPinIcon,
-  UserGroupIcon,
-  HashtagIcon,
-  GlobeAltIcon,
-  ArrowPathIcon
-} from '@heroicons/vue/24/outline'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faInstagram, faLinkedin, faFacebook, faTelegram } from '@fortawesome/free-brands-svg-icons';
+
+// Add icons to the library
+library.add(faInstagram, faLinkedin, faFacebook, faTelegram);
 
 export default {
   name: 'ContactSection',
   components: {
-    EnvelopeIcon,
-    PhoneIcon,
-    MapPinIcon,
-    UserGroupIcon,
-    HashtagIcon,
-    GlobeAltIcon,
-    ArrowPathIcon
+    FontAwesomeIcon
   },
   data() {
     return {
@@ -156,142 +108,67 @@ export default {
         email: '',
         message: ''
       },
-      formFields: {
-        name: { label: 'Your Name', type: 'text' },
-        email: { label: 'Your Email', type: 'email' },
-        message: { label: 'Your Message', type: 'textarea' }
-      },
       errors: {},
       isSubmitting: false,
-      showSuccess: false,
-      contactInfo: [
-        {
-          icon: 'EnvelopeIcon',
-          title: 'Email',
-          details: 'hello@dandidigital.com'
-        },
-        {
-          icon: 'PhoneIcon',
-          title: 'Phone',
-          details: '+1 (234) 567-8900'
-        },
-        {
-          icon: 'MapPinIcon',
-          title: 'Location',
-          details: 'Melbourne, Australia'
-        }
-      ],
+      successMessage: '',
+      info: {
+        title: 'Get in Touch',
+        details: 'Let\'s Create Something Amazing'
+      },
       socialLinks: [
-        { name: 'Community', icon: 'UserGroupIcon', url: '#' },
-        { name: 'Social', icon: 'HashtagIcon', url: '#' },
-        { name: 'Website', icon: 'GlobeAltIcon', url: '#' }
+        { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/dandi_digital_marketing_agency' },
+        { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/dandi-digital-827b12350' },
+        { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=100082760081622' },
+        { name: 'Telegram', icon: 'telegram', url: '#' }
       ]
-    }
-  },
-  mounted() {
-    this.initParallaxEffect();
+    };
   },
   methods: {
-    initParallaxEffect() {
-      document.addEventListener("mousemove", (e) => {
-        const bg = this.$refs.backgroundEffect;
-        if (bg) {
-          const x = (e.clientX / window.innerWidth - 0.5) * 10;
-          const y = (e.clientY / window.innerHeight - 0.5) * 10;
-          bg.style.transform = `translate(${x}px, ${y}px)`;
-        }
-      });
-    },
-    validateForm() {
-      this.errors = {};
-      if (!this.formData.name) this.errors.name = 'Name is required';
-      if (!this.formData.email) {
-        this.errors.email = 'Email is required';
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) {
-        this.errors.email = 'Please enter a valid email';
-      }
-      if (!this.formData.message) this.errors.message = 'Message is required';
-      return Object.keys(this.errors).length === 0;
-    },
-    clearError(field) {
-      this.$delete(this.errors, field);
-    },
     async handleSubmit() {
-      if (!this.validateForm()) return;
-      
+      this.errors = {};
+      this.successMessage = '';
+
+      // Basic validation
+      if (!this.formData.name) {
+        this.errors.name = 'Name is required.';
+      }
+      if (!this.formData.email) {
+        this.errors.email = 'Email is required.';
+      } else if (!/\S+@\S+\.\S+/.test(this.formData.email)) {
+        this.errors.email = 'Please enter a valid email address.';
+      }
+      if (!this.formData.message) {
+        this.errors.message = 'Message is required.';
+      }
+
+      if (Object.keys(this.errors).length > 0) {
+        return;
+      }
+
       this.isSubmitting = true;
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      this.isSubmitting = false;
-      this.showSuccess = true;
-      this.formData = { name: '', email: '', message: '' };
-      
-      setTimeout(() => {
-        this.showSuccess = false;
-      }, 5000);
+
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        this.successMessage = 'Message sent successfully! We\'ll get back to you soon. ✨';
+        this.formData = { name: '', email: '', message: '' };
+      } catch (error) {
+        console.error('Error sending message:', error);
+      } finally {
+        this.isSubmitting = false;
+      }
     }
   }
-}
+};
 </script>
 
 <style scoped>
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-10px) rotate(5deg); }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 20px) rotate(1deg); }
 }
-
-@keyframes float-delay {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-10px) rotate(-5deg); }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.9); }
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(45deg); }
-  50% { transform: translateY(-15px) rotate(60deg); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-float-delay {
-  animation: float-delay 4s ease-in-out infinite;
-}
-
-.animate-twinkle {
-  animation: twinkle 2s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slideIn {
-  animation: slideIn 0.3s ease-out;
+@keyframes float-delayed {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -20px) rotate(-1deg); }
 }
 </style>
